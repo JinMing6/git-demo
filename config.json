@@ -1,3 +1,4 @@
 {
-    "id": "dev123"
+    "id": "dev123",
+    "greeting": "Hello"
 }
