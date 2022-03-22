@@ -1,91 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
-		/>
-	</head>
-	<body>
-        <div id="app">
-            <el-tree :data="data.treeData" :props="defaultProps"></el-tree>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js" integrity="sha512-XdUZ5nrNkVySQBnnM5vzDqHai823Spoq1W3pJoQwomQja+o4Nw0Ew1ppxo5bhF2vMug6sfibhKWcNJsG8Vj9tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-		<script>
-			let data = {
-				treeData: [
-					{
-						id: 1,
-						label: "市北区",
-						children: [
-							{
-								id: 2,
-								label: "洛阳路",
-								children: [
-									{
-										id: 4,
-										label: "一号",
-									},
-									{
-										id: 5,
-										label: "二号",
-									},
-								],
-							},
-							{
-								id: 3,
-								label: "周口路",
-							},
-						],
-					},
-				],
-			};
-
-			let whiteKeys = ["label", "children"];
-			let res = deepClone(data.treeData);
-			console.log(JSON.stringify(res, null, 2));
-
-			function deepClone(dataSource) {
-				let result;
-				if (checkType(dataSource) === "[object Object]") {
-					result = {};
-					for (const key in dataSource) {
-						if (whiteKeys.includes(key)) {
-							result[key] = deepClone(dataSource[key]);
-						}
-					}
-				} else if (checkType(dataSource) === "[object Array]") {
-					result = [];
-					dataSource.forEach((elem) => {
-						result.push(deepClone(elem));
-					});
-				} else {
-					result = dataSource;
-				}
-				return result;
-			}
-
-			function checkType(val) {
-				return Object.prototype.toString.call(val);
-			}
-
-            let vm = new Vue({
-                el: "#app",
-                data() {
-                    return {
-                        data,
-                        defaultProps: {
-                            label: "label",
-                            children: "children"
-                        }
-                    }
-                }
-            })
-		</script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>demo</div>
+</body>
 </html>
