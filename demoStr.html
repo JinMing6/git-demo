@@ -1,0 +1,235 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media print {
+            @page {
+                size: auto;
+                margin: 0mm;
+            }
+            .pritnBtn {
+                display: none;
+            }
+        }
+        .title {
+            font-size: 0.3cm;
+            font-size: 0.5cm;
+            color: transparent;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .container {
+            width: 17cm;
+            height: 8.5cm;
+            text-align: center;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            padding: 0 0.05cm;
+            overflow: hidden;
+            margin-top: 9mm;
+        }
+
+        .table {
+            display: inline-block;
+            border-left: 1px solid transparent;
+            border-top: 1px solid transparent;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            height: 1.4cm;
+            align-items: center;
+        }
+        .header .orderNunm {
+            margin-left: 4cm;
+            font-size: 0.5cm;
+            color: transparent;
+        }
+        .header .codeAndDate {
+            margin-left: 7cm;
+        }
+        .header .codeAndDate .outFactoryCode,
+        .header .codeAndDate .outFactoryDate {
+            display: flex;
+        }
+        .header .codeAndDate .outFactoryCode .label,
+        .header .codeAndDate .outFactoryDate .label {
+            width: 2.4cm;
+            text-align: left;
+            color: transparent;
+            font-size: 0.3cm;
+        }
+        .header .codeAndDate .outFactoryCode .value,
+        .header .codeAndDate .outFactoryDate .value {
+            font-size: 0.32cm;
+        }
+        .header .codeAndDate .outFactoryCode {
+            margin-bottom: 0.15cm;
+        }
+
+        .main .row {
+            display: flex;
+        }
+        .main .row .cell {
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            display: flex;
+            align-items: center;
+        }
+        .main .row .sendBoxAddressLabel,
+        .main .row .targetAddressLabel {
+            font-size: 0.3cm;
+            width: 14px;
+            padding: 0 8px;
+            color: transparent;
+        }
+        .main .row .sendBoxAddressValue,
+        .main .row .targetAddressValue {
+            text-indent: 12px;
+            color: rgb(0, 0, 0);
+            font-size: 0.3cm;
+        }
+        .main .row .sendBoxAddressSpace {
+            width: 5.06cm;
+        }
+        .main .row .sendBoxAddressValue {
+            width: 4.4cm;
+        }
+        .main .row .targetAddressValue {
+            flex: 1;
+        }
+        .main .row .box .label,
+        .main .row .box .value {
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+        }
+        .main .row .box .label {
+            font-size: 0.3cm;
+            color: transparent;
+        }
+        .main .row .box .value {
+            color: rgb(0, 0, 0);
+            font-size: 0.3cm;
+            height: 1.2cm;
+        }
+        .main .row .box.full {
+            flex: 1;
+        }
+        .main .row .box.boxNum {
+            width: 5.1cm;
+        }
+        .main .row .box.boxNum .value {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .main .row .box.boxNum .value p {
+            margin: 0;
+            padding: 0;
+        }
+        .main .row .box.boxType .value,
+        .main .row .box.boxOwner .value {
+            width: 3.8cm;
+        }
+        .main .row .box.boxOwner .value {
+            width: 2.2cm;
+        }
+        .main .row .box.remark .label {
+            border-bottom: 1px solid transparent;
+            color: transparent;
+        }
+        .main .row .box.boxType .label,
+        .main .row .box.boxOwner .label,
+        .main .row .box.remark .label {
+            font-size: 0.32cm;
+        }
+        .main .row .box.boxType .value,
+        .main .row .box.boxOwner .value,
+        .main .row .box.remark .value {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main .row:nth-of-type(1) {
+            height: 1.6cm;
+        }
+
+        .signArea {
+            text-align: left;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            padding: 10px;
+        }
+        .signArea .tip {
+            color: transparent;
+            font-size: 0.3cm;
+            margin-top: 0.1cm;
+        }
+        .signArea .tipBottom {
+            height: 0.8cm;
+        }
+        .signArea .transporter {
+            display: flex;
+            justify-content: space-between;
+        }
+        .signArea .transporter .transporterFactory,
+        .signArea .transporter .transporterCar {
+            display: flex;
+        }
+        .signArea .transporter .transporterFactory .label,
+        .signArea .transporter .transporterCar .label {
+            font-size: 0.3cm;
+            color: transparent;
+            width: 2cm;
+        }
+        .signArea .transporter .transporterFactory .value,
+        .signArea .transporter .transporterCar .value {
+            color: rgb(0, 0, 0);
+            font-size: 0.3cm;
+            flex: 1;
+            width: 3.6cm;
+            text-indent: 0.3cm;
+        }
+        .signArea .transporter .transporterCar {
+            display: flex;
+        }
+
+        .bottom {
+            padding-top: 0.1cm;
+            display: flex;
+            justify-content: space-between;
+        }
+        .bottom .sendBox,
+        .bottom .receiveBox {
+            display: flex;
+        }
+        .bottom .sendBox .label,
+        .bottom .receiveBox .label {
+            font-size: 0.3cm;
+            color: transparent;
+            width: 2cm;
+        }
+        .bottom .sendBox .value,
+        .bottom .receiveBox .value {
+            color: rgb(0, 0, 0);
+            font-size: 0.3cm;
+            width: 3.85cm;
+            text-align: left;
+            text-indent: 0.4cm;
+        }
+        .bottom .sendBox {
+            padding-left: 0.3cm;
+        }
+    </style>
+</head>
+<body><div class="container" data-v-577a60c9=""><div class="title" data-v-577a60c9=""> 寰宇东方国际集装箱（青岛）有限公司集装箱交接单-干箱 </div><div class="table" data-v-577a60c9=""><header class="header" data-v-577a60c9=""><div class="orderNunm" data-v-577a60c9=""><span data-v-577a60c9="">&nbsp;</span></div><div class="codeAndDate" data-v-577a60c9=""><div class="outFactoryCode" data-v-577a60c9=""><div class="label" data-v-577a60c9="">出厂编码：</div><div class="value" data-v-577a60c9=""></div></div><div class="outFactoryDate" data-v-577a60c9=""><div class="label" data-v-577a60c9="">日期：</div><div class="value" data-v-577a60c9="">2022 05 26</div></div></div></header><main class="main" data-v-577a60c9=""><div class="row" data-v-577a60c9=""><div class="cell space sendBoxAddressSpace" data-v-577a60c9=""></div><div class="cell sendBoxAddressLabel" data-v-577a60c9="">发箱地</div><div class="cell sendBoxAddressValue" data-v-577a60c9=""></div><div class="cell targetAddressLabel" data-v-577a60c9="">目的地</div><div class="cell targetAddressValue" data-v-577a60c9=""></div></div><div class="row" data-v-577a60c9=""><div class="box boxNum" data-v-577a60c9=""><div class="label" data-v-577a60c9="">箱号</div><div class="value" data-v-577a60c9=""></div></div><div class="box boxType" data-v-577a60c9=""><div class="label" data-v-577a60c9="">箱型</div><div class="value" data-v-577a60c9=""></div></div><div class="box boxOwner" data-v-577a60c9=""><div class="label" data-v-577a60c9="">箱东</div><div class="value" data-v-577a60c9=""></div></div><div class="box full remark" data-v-577a60c9=""><div class="label" data-v-577a60c9="">备注</div><div class="value" data-v-577a60c9=""></div></div></div><div class="signArea" data-v-577a60c9=""><div class="tip" data-v-577a60c9=""> 确认完好无损，保证运输安全，司机签字: </div><div class="tipBottom" data-v-577a60c9=""></div><div class="transporter" data-v-577a60c9=""><div class="transporterFactory" data-v-577a60c9=""><span class="label" data-v-577a60c9="">运箱公司：</span><span class="value" data-v-577a60c9=""></span></div><div class="transporterCar" data-v-577a60c9=""><div class="label" data-v-577a60c9="">车号：</div><div class="value" data-v-577a60c9=""></div></div></div></div></main></div><div class="bottom" data-v-577a60c9=""><div class="sendBox" data-v-577a60c9=""><span class="label" data-v-577a60c9="">发箱人：</span><span class="value" data-v-577a60c9=""></span></div><div class="receiveBox" data-v-577a60c9=""><span class="label" data-v-577a60c9="">收箱：</span><span class="value" data-v-577a60c9=""></span></div></div></div></body>
